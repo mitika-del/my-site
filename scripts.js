@@ -78,6 +78,13 @@ if (form) {
       homeType ? `Home type: ${homeType}` : null,
     ].filter(Boolean).join('\n');
 
+    // Store in database — fire-and-forget, never blocks WhatsApp open
+    fetch('/api/assessment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, area, home_type: homeType })
+    }).catch(() => {});
+
     window.open(
       `https://wa.me/917758070490?text=${encodeURIComponent(msg)}`,
       '_blank',
