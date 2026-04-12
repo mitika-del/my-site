@@ -70,26 +70,12 @@ if (form) {
     const area     = document.getElementById('area').value.trim();
     const homeType = document.getElementById('home-type').value;
 
-    const msg = [
-      `Hi, I'd like to book a free site assessment for airTENO.`,
-      `Name: ${name}`,
-      phone    ? `Phone: ${phone}` : null,
-      area     ? `Area: ${area}` : null,
-      homeType ? `Home type: ${homeType}` : null,
-    ].filter(Boolean).join('\n');
-
-    // Store in database — fire-and-forget, never blocks WhatsApp open
+    // Store lead in database
     fetch('/api/assessment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, phone, area, home_type: homeType })
     }).catch(() => {});
-
-    window.open(
-      `https://wa.me/917758070490?text=${encodeURIComponent(msg)}`,
-      '_blank',
-      'noopener,noreferrer'
-    );
 
     // Show success state
     form.innerHTML = `
