@@ -213,14 +213,15 @@ input, select, textarea, button { font-family: var(--font-body); font-size: inhe
   gap: 40px;
 }
 .nav-logo {
-  font-family: var(--font-body);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -.02em;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
-.nav-logo span { color: var(--teal); }
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -1263,15 +1264,14 @@ input, select, textarea, button { font-family: var(--font-body); font-size: inhe
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .footer-logo {
-  font-family: var(--font-body);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: -.02em;
   display: block;
   margin-bottom: 8px;
 }
-.footer-logo span { color: var(--teal); }
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
 .footer-tagline {
   font-size: 14px;
   color: rgba(255,255,255,.4);

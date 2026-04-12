@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#002210"/>
-  <text x="16" y="22" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#16BD95" text-anchor="middle">a</text>
+  <rect width="32" height="32" rx="7" fill="#002210"/>
+  <!-- Teal ring (the O) -->
+  <circle cx="16" cy="16" r="10" fill="none" stroke="#16BD95" stroke-width="3.5"/>
+  <!-- Crosshair notches (cut through with bg color) -->
+  <rect x="14.75" y="2"  width="2.5" height="5.5" fill="#002210"/>
+  <rect x="14.75" y="24.5" width="2.5" height="5.5" fill="#002210"/>
+  <rect x="2"    y="14.75" width="5.5" height="2.5" fill="#002210"/>
+  <rect x="24.5" y="14.75" width="5.5" height="2.5" fill="#002210"/>
 </svg>

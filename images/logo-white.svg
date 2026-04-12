@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 76">
+  <defs>
+    <mask id="crosshair-white">
+      <rect width="310" height="76" fill="white"/>
+      <!-- Crosshair notches over the O -->
+      <rect x="270" y="12"  width="4" height="11" fill="black"/>
+      <rect x="270" y="54"  width="4" height="11" fill="black"/>
+      <rect x="242" y="35"  width="11" height="4" fill="black"/>
+      <rect x="286" y="35"  width="11" height="4" fill="black"/>
+    </mask>
+  </defs>
+  <!-- "air" in white -->
+  <text x="4" y="64"
+        font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif"
+        font-weight="900" font-size="68" fill="#ffffff">air</text>
+  <!-- "TENO" in teal with crosshair mask -->
+  <text x="112" y="64"
+        font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif"
+        font-weight="900" font-size="68" fill="#16BD95"
+        mask="url(#crosshair-white)">TENO</text>
+</svg>
