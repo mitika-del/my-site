@@ -1432,7 +1432,7 @@ input, select, textarea, button { font-family: var(--font-body); font-size: inhe
 /* ── Widget launchers ── */
 .chat-launchers {
   position: fixed;
-  bottom: 28px;
+  bottom: 96px;
   right: 28px;
   z-index: 1100;
   display: flex;
@@ -1656,7 +1656,7 @@ input, select, textarea, button { font-family: var(--font-body); font-size: inhe
 
 /* ── Mobile tweaks ── */
 @media (max-width: 520px) {
-  .chat-launchers { right: 16px; bottom: 80px; }
+  .chat-launchers { right: 16px; bottom: 96px; }
   .chat-launcher-label { display: none; }
   .chat-launcher { padding: 14px; aspect-ratio: 1; justify-content: center; }
   .chat-window { right: 16px; width: calc(100vw - 32px); }
