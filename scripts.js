@@ -6,6 +6,14 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
+/* ── Scroll progress bar ─────────────────── */
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrolled  = window.scrollY;
+  const maxScroll = document.body.scrollHeight - window.innerHeight;
+  scrollProgress.style.width = Math.min((scrolled / maxScroll) * 100, 100) + '%';
+}, { passive: true });
+
 /* ── Mobile nav toggle ─────────────────────── */
 const navToggle = document.getElementById('navToggle');
 navToggle.addEventListener('click', () => {
@@ -51,9 +59,16 @@ const statNums = document.querySelectorAll('.stat-num[data-target]');
 const statsObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const el = entry.target;
+      const el     = entry.target;
       const target = parseInt(el.dataset.target, 10);
+      const block  = el.closest('.stat-block');
       animateCounter(el, target);
+      if (block) {
+        setTimeout(() => {
+          block.classList.add('lit');
+          block.addEventListener('animationend', () => block.classList.remove('lit'), { once: true });
+        }, 400);
+      }
       statsObserver.unobserve(el);
     }
   });

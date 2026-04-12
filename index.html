@@ -27,6 +27,9 @@
 </head>
 <body>
 
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- ═══════════════════════════════════════
        NAVIGATION
   ═══════════════════════════════════════ -->
@@ -199,7 +202,35 @@
           </div>
         </div>
       </div>
-      <!-- Product photo: add images/product-unit.jpg when available -->
+      <!-- How-it-works images: system diagram + filtration cross-section -->
+      <div class="hiw-images-row reveal reveal-delay-2">
+        <div class="hiw-img-wrap">
+          <img
+            src="images/how-it-works.jpg"
+            alt="airTENO MAX — positive pressure system in action"
+            class="hiw-photo"
+            onerror="this.closest('.hiw-img-wrap').classList.add('no-image')"
+          >
+          <div class="hiw-fallback">
+            <p>System diagram / install photo</p>
+            <code>images/how-it-works.jpg</code>
+          </div>
+          <p class="hiw-caption">The positive pressure system</p>
+        </div>
+        <div class="hiw-img-wrap">
+          <img
+            src="images/filtration.jpg"
+            alt="airTENO MAX — 4-stage filtration cross-section"
+            class="hiw-photo"
+            onerror="this.closest('.hiw-img-wrap').classList.add('no-image')"
+          >
+          <div class="hiw-fallback">
+            <p>Filtration cross-section photo</p>
+            <code>images/filtration.jpg</code>
+          </div>
+          <p class="hiw-caption">4-stage HEPA H14 filtration — inside the unit</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -299,14 +330,25 @@
           <p class="section-label">Technical Specifications</p>
           <h2>airTENO MAX</h2>
           <p class="specs-intro">Designed for Delhi NCR conditions. Rated for 24/7 operation. Precision-grade filtration in a whole-home system that installs in half a day.</p>
-          <!-- Replace with actual product photo when available -->
-          <div class="product-photo-placeholder reveal reveal-delay-1" aria-label="airTENO MAX unit photo coming soon"></div>
+          <!-- Product unit photo -->
+          <div class="product-img-wrap reveal reveal-delay-1">
+            <img
+              src="images/product-unit.jpg"
+              alt="airTENO MAX unit"
+              class="product-img"
+              onerror="this.closest('.product-img-wrap').classList.add('no-image')"
+            >
+            <div class="product-img-fallback">
+              <p>Add product photo:</p>
+              <code>images/product-unit.jpg</code>
+            </div>
+          </div>
         </div>
         <div class="specs-right reveal reveal-delay-1">
           <table class="specs-table">
             <tbody>
               <tr><td class="spec-label">Air Delivery</td><td class="spec-value">1,699 m³/hr <span class="spec-note">(1,000 CFM)</span></td></tr>
-              <tr><td class="spec-label">Coverage</td><td class="spec-value">2,000–4,000 sq ft <span class="spec-note">whole home</span></td></tr>
+              <tr><td class="spec-label">Coverage</td><td class="spec-value">Up to 1,500 sq ft <span class="spec-note">scalable solution design available for larger areas</span></td></tr>
               <tr><td class="spec-label">Filter Grade</td><td class="spec-value teal-val">HEPA H14 <span class="spec-note">precision-grade filtration</span></td></tr>
               <tr><td class="spec-label">Filtration Efficiency</td><td class="spec-value teal-val">99.997% <span class="spec-note">@ 0.3 µm</span></td></tr>
               <tr><td class="spec-label">Filter Stages</td><td class="spec-value">4-stage <span class="spec-note">Pre → Medium → H14 × 2</span></td></tr>
@@ -678,16 +720,6 @@
           <h4>Satish Dhulipala</h4>
           <p class="team-role">Head Fulfilment</p>
           <p class="team-bio">Supply chain and logistics. Ensures installation quality and service consistency.</p>
-        </div>
-        <div class="team-card">
-          <div class="team-photo-placeholder">
-            <img src="images/team-nazir.jpg" alt="Nazir Uddin"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="team-initials">NU</span>
-          </div>
-          <h4>Nazir Uddin</h4>
-          <p class="team-role">Customer Success & Growth</p>
-          <p class="team-bio">Delhi-based. Owns customer success, lead qualification, and on-ground growth.</p>
         </div>
       </div>
     </div>
