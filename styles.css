@@ -1654,40 +1654,6 @@ input, select, textarea, button { font-family: var(--font-body); font-size: inhe
 .chat-send:hover { background: #10a87f; transform: scale(1.06); }
 .chat-send:disabled { background: #c5ddd7; cursor: not-allowed; transform: none; }
 
-/* ── Proposal-specific ── */
-.proposal-window .chat-header { background: #6E46F0; }
-.proposal-avatar { background: rgba(255,255,255,.2) !important; color: var(--white) !important; }
-
-.proposal-progress {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
-  border-bottom: 1px solid #edf0ef;
-  background: #fafbfa;
-}
-.proposal-progress-label {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  min-width: 62px;
-}
-.proposal-progress-track {
-  flex: 1;
-  height: 4px;
-  background: #e0e3e3;
-  border-radius: 100px;
-  overflow: hidden;
-}
-.proposal-progress-fill {
-  height: 100%;
-  background: var(--teal);
-  border-radius: 100px;
-  transition: width .4s cubic-bezier(.4,0,.2,1);
-}
-
 /* ── Mobile tweaks ── */
 @media (max-width: 520px) {
   .chat-launchers { right: 16px; bottom: 80px; }

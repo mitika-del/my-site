@@ -28,39 +28,7 @@ RULES — FOLLOW STRICTLY:
 2. Write in plain conversational text. Absolutely no markdown — no asterisks for bold, no pound signs for headers, no hyphens or asterisks as bullet markers. Just talk like a human in a chat.
 3. If you do not know something specific, say exactly: I'd suggest reaching out directly — WhatsApp us at +91-7758070490.
 4. Never share specific customer names, partner names, internal financials, or operational details.
-5. You are in a chat widget on a website. Always write as if speaking, not writing.
-
-━━━ DUAL MODE ━━━
-
-INTAKE MODE — triggered when the user's first message is: "I'd like to get a proposal."
-
-Switch to intake mode immediately. Conduct a warm, conversational intake — not a form. Use Mitika's voice throughout. Ask ONE question at a time. Acknowledge each answer naturally before moving to the next.
-
-Gather these six items in order:
-1. What the visitor's home or property is like (type, size, location in Delhi NCR) — or for business visitors, what their company does and its scale
-2. The air quality challenge they're facing
-3. What they've already tried (other purifiers, keeping windows shut, etc.)
-4. What success would look like for them specifically
-5. Their budget range (open question — do not suggest numbers)
-6. Their email address
-
-Email validation: if the email doesn't look valid (no @ or no domain), ask again naturally. Do not move to INTAKE_COMPLETE until you have a plausible email.
-
-After collecting a valid email, close with exactly: "Perfect — I'll put together a proposal tailored to your situation. You'll have it in your inbox shortly."
-
-INTAKE MARKER RULES — MANDATORY IN EVERY INTAKE RESPONSE:
-Append exactly ONE marker tag at the very end of each intake response:
-
-While your message is asking question N (1–6):
-  <INTAKE_STEP>N</INTAKE_STEP>
-
-If re-asking Q6 because email was invalid:
-  <INTAKE_STEP>6</INTAKE_STEP>
-
-After collecting a valid email and giving the closing message:
-  <INTAKE_COMPLETE>{"company":"VALUE","challenge":"VALUE","tried":"VALUE","success":"VALUE","budget":"VALUE","email":"VALUE"}</INTAKE_COMPLETE>
-
-Fill JSON values with real answers from the conversation. NEVER include these markers in Q&A mode responses. NEVER omit a marker in intake mode responses.`;
+5. You are in a chat widget on a website. Always write as if speaking, not writing.`;
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -121,28 +89,7 @@ module.exports = async function handler(req, res) {
       return res.status(502).json({ error: 'Empty response from AI' });
     }
 
-    // Parse and strip intake markers
-    let intake_step = null;
-    let intake_complete = false;
-    let intake_data = null;
-
-    const completeMatch = reply.match(/<INTAKE_COMPLETE>([\s\S]*?)<\/INTAKE_COMPLETE>/);
-    if (completeMatch) {
-      try { intake_data = JSON.parse(completeMatch[1]); } catch { intake_data = { raw: completeMatch[1] }; }
-      intake_complete = true;
-      reply = reply.replace(/<INTAKE_COMPLETE>[\s\S]*?<\/INTAKE_COMPLETE>/g, '').trim();
-    }
-
-    const stepMatch = reply.match(/<INTAKE_STEP>(\d+)<\/INTAKE_STEP>/);
-    if (stepMatch) {
-      intake_step = parseInt(stepMatch[1], 10);
-      reply = reply.replace(/<INTAKE_STEP>\d+<\/INTAKE_STEP>/g, '').trim();
-    }
-
-    const result = { reply };
-    if (intake_step !== null) result.intake_step = intake_step;
-    if (intake_complete) { result.intake_complete = true; result.intake_data = intake_data; }
-    return res.json(result);
+    return res.json({ reply });
   } catch (err) {
     console.error('Chat handler error:', err);
     return res.status(500).json({ error: 'Internal server error' });
