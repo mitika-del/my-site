@@ -95,9 +95,8 @@ if (form) {
     form.innerHTML = `
       <div class="form-success">
         <div class="form-success-icon">✓</div>
-        <h3>We'll be in touch shortly.</h3>
-        <p>Your request is going to our team on WhatsApp. Expect a response within 24 hours.</p>
-        <p class="form-success-direct">Or reach us directly: <a href="https://wa.me/917758070490" target="_blank" rel="noopener">+91-7758070490</a></p>
+        <h3>Request accepted.</h3>
+        <p>We'll be in touch to schedule your free site assessment.</p>
       </div>
     `;
   });
