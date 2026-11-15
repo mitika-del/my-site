@@ -75,34 +75,6 @@ const statsObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 statNums.forEach(el => statsObserver.observe(el));
 
-/* ── Contact form → WhatsApp ───────────────── */
-const form = document.getElementById('assessmentForm');
-if (form) {
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const name     = document.getElementById('name').value.trim();
-    const phone    = document.getElementById('phone').value.trim();
-    const area     = document.getElementById('area').value.trim();
-    const homeType = document.getElementById('home-type').value;
-
-    // Store lead in database
-    fetch('/api/assessment', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone, area, home_type: homeType })
-    }).catch(() => {});
-
-    // Show success state
-    form.innerHTML = `
-      <div class="form-success">
-        <div class="form-success-icon">✓</div>
-        <h3>Request accepted.</h3>
-        <p>We'll be in touch to schedule your free site assessment.</p>
-      </div>
-    `;
-  });
-}
-
 /* ── FAQ Accordion ─────────────────────────── */
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
