@@ -185,6 +185,8 @@ input, select, textarea, button { font-family: var(--font-body); font-size: inhe
 /* ══════════════════════════════════════════
    NAVIGATION
 ══════════════════════════════════════════ */
+section[id] { scroll-margin-top: var(--nav-h); }
+
 #navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -1517,6 +1519,7 @@ input, select, textarea, button { font-family: var(--font-body); font-size: inhe
   height: 32px;
   width: auto;
   display: block;
+  filter: brightness(0) invert(1);
 }
 .footer-tagline {
   font-size: 14px;
